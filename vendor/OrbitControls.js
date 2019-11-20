@@ -1,4 +1,5 @@
 /**
+ * traversc: modified mouse wheel zoom to work with orthographic camera
  * @author qiao / https://github.com/qiao
  * @author mrdoob / http://mrdoob.com
  * @author alteredq / http://alteredqualia.com/
@@ -209,28 +210,29 @@ THREE.OrbitControls = function ( object, domElement ) {
 
 	};
 
+	//traversc: fix with orthographic camera zoom
 	this.dollyIn = function ( dollyScale ) {
-
 		if ( dollyScale === undefined ) {
-
 			dollyScale = getZoomScale();
-
 		}
-
-		scale /= dollyScale;
-
+		if ( scope.object.top !== undefined ) {
+			this.object.zoom *= dollyScale;
+			this.object.updateProjectionMatrix();
+		} else {
+			scale /= dollyScale;
+		}
 	};
 
 	this.dollyOut = function ( dollyScale ) {
-
 		if ( dollyScale === undefined ) {
-
 			dollyScale = getZoomScale();
-
 		}
-
-		scale *= dollyScale;
-
+		if ( scope.object.top !== undefined ) {
+			this.object.zoom /= dollyScale;
+			this.object.updateProjectionMatrix();
+		} else {
+			scale *= dollyScale;
+		}
 	};
 
 	this.update = function () {
