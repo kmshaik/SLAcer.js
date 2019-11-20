@@ -48,11 +48,11 @@ var SLAcer = SLAcer || {};
         var aspect = width / height;
 
         // landscape or portrait orientation
-        if (this.camera.aspect < aspect) {
-            size = (width + margin) / this.camera.aspect;
-        }
+        //if (this.camera.aspect < aspect) {
+        //    size = (width + margin) / this.camera.aspect;
+        //}
 
-        return size / 2 / Math.tan(Math.PI * this.camera.fov / 360);
+        return size / 2 / Math.tan(Math.PI * 45 / 360);
     };
 
     ViewControls.prototype.lookAtFocusPoint = function() {
