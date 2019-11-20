@@ -93,7 +93,7 @@ var SLAcer = SLAcer || {};
 
     Viewer2D.prototype.setView = function() {
         var distance = this.screen.height / 2;
-            distance /= Math.tan(Math.PI * this.camera.fov / 360);
+            distance /= Math.tan(Math.PI * 45 / 360);
             distance *= this.dotPitch;
 
         this.camera.position.z = distance;
