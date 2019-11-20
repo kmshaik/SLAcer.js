@@ -13,9 +13,12 @@ var SLAcer = SLAcer || {};
         antialias: true,
         target: document.body,
         camera: {
-            fov: 45,
-            near: 0.1,
-            far: 10000,
+            left: -300,
+            right: 300,
+            top: 200,
+            bottom: -200,
+            near:1,
+            far:1000,
         }
     };
 
