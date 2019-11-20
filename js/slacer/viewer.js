@@ -18,7 +18,7 @@ var SLAcer = SLAcer || {};
             top: 200,
             bottom: -200,
             near:1,
-            far:1000,
+            far:1000
         }
     };
 
