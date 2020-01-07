@@ -34,13 +34,13 @@ var settings = new SLAcer.Settings({
     mesh: {
         panel: {
             collapsed: false,
-            position : 2
+            position : 3
         }
     },
     transform: {
         panel: {
             collapsed: false,
-            position : 3
+            position : 2
         },
         mirror: false
     },
@@ -58,14 +58,14 @@ var settings = new SLAcer.Settings({
         density  : 1.1, // g/cm3
         price    : 50,   // $
         panel    : {
-            collapsed: false,
+            collapsed: true,
             position : 5
         }
     },
     screen: {
-        width    : window.screen.width,
-        height   : window.screen.height,
-        diagonal : { size: 22, unit: 'in' },
+        width    : 512,
+        height   : 480,
+        diagonal : { size: 35.1, unit: 'mm' },
         panel    : {
             collapsed: false,
             position : 6
@@ -303,7 +303,7 @@ var viewer2d = new SLAcer.Viewer2D({
         size   : settings.get('buildVolume.size'),
         unit   : settings.get('buildVolume.unit'),
         color  : 0x000000,
-        opacity: 0 // hide build plate
+        opacity: 1 // hide build plate
     },
     size: settings.get('screen')
 });
@@ -409,12 +409,19 @@ function parseUnit(value, unit) {
 // File panel
 var $fileBody  = initPanel('file');
 var $fileInput = $fileBody.find('#file-input');
+
+var $bgBody  = initPanel('bg');
+var $bgInput = $bgBody.find('#background-input');
 var loadedFile = null;
 
 $fileInput.on('change', function(e) {
     resetTransformValues();
     loadedFile = e.target.files[0];
     loader.loadFile(loadedFile);
+});
+
+$bgInput.on('change', function(e) {
+    bgFile = e.target.files[0];
 });
 
 // Mesh panel
@@ -1015,11 +1022,12 @@ function loadGeometry(geometry, mirror) {
 
         // load new mesh in slicer
         slicer.loadMesh(new SLAcer.Mesh(geometry, new THREE.MeshPhongMaterial({
-            color: hexToDec(settings.get('colors.mesh')), side: THREE.DoubleSide
+            color: hexToDec(settings.get('colors.mesh')), side: THREE.DoubleSide, opacity:0.5, transparent:true, depthTest:false
         })));
 
         // add new mesh and render view
         viewer3d.addObject(slicer.mesh);
+		viewer3d.addBG();
         viewer3d.render();
 
         // update mesh info

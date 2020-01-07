@@ -36,7 +36,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 	// This option actually enables dollying in and out; left as "zoom" for
 	// backwards compatibility
 	this.noZoom = false;
-	this.zoomSpeed = 1.0;
+	this.zoomSpeed = 0.5;
 
 	// Limits to how far you can dolly in and out
 	this.minDistance = 0;
@@ -230,6 +230,7 @@ THREE.OrbitControls = function ( object, domElement ) {
 		if ( scope.object.top !== undefined ) {
 			this.object.zoom /= dollyScale;
 			this.object.updateProjectionMatrix();
+			
 		} else {
 			scale *= dollyScale;
 		}
@@ -298,8 +299,9 @@ THREE.OrbitControls = function ( object, domElement ) {
 		// min(camera displacement, camera rotation in radians)^2 > EPS
 		// using small-angle approximation cos(x/2) = 1 - x^2 / 8
 
-		if ( lastPosition.distanceToSquared( this.object.position ) > EPS
-		    || 8 * (1 - lastQuaternion.dot(this.object.quaternion)) > EPS ) {
+// lastPosition.distanceToSquared( this.object.position ) > EPS
+		    // || 8 * (1 - lastQuaternion.dot(this.object.quaternion)) > EPS
+		if (true  ) {
 
 			this.dispatchEvent( changeEvent );
 
@@ -421,8 +423,9 @@ THREE.OrbitControls = function ( object, domElement ) {
 				scope.dollyOut();
 
 			}
+			scope.update();
 
-			dollyStart.copy( dollyEnd );
+			//dollyStart.copy( dollyEnd );
 
 		} else if ( state === STATE.PAN ) {
 

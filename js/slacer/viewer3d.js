@@ -12,7 +12,7 @@ var SLAcer = SLAcer || {};
                 y: 100, // mm
                 z: 100  // mm
             },
-            color: 0xff0000,
+            color: 0x0000ff,
             opacity: 0.1
         }
     };
@@ -81,6 +81,22 @@ var SLAcer = SLAcer || {};
         // call parent method
         SLAcer.Viewer.prototype.addObject.call(this, object);
     };
+	
+	Viewer3D.prototype.addBG = function(file){
+		
+		var planeGeometry = new THREE.PlaneGeometry(24, 25.6, 0, 0);
+		loader= new THREE.TextureLoader()
+		loader.setCrossOrigin('anonymous');
+		var texture =loader.load('screenshot.png');
+		var planeMaterial = new THREE.MeshLambertMaterial( { map: texture } );
+		var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+		
+		plane.receiveShadow = true;
+		
+		plane.position.set(0,0,-10);
+		
+        SLAcer.Viewer.prototype.addObject.call(this, plane);
+	}
 
     // -------------------------------------------------------------------------
 
