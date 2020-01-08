@@ -34,7 +34,7 @@ var SLAcer = SLAcer || {};
 
         // create main objects
         self.scene    = new THREE.Scene();
-        self.camera   = new THREE.OrthographicCamera(-600,600,400,-400,1,1000);
+        self.camera   = new THREE.OrthographicCamera(-300,300,200,-200,1,1000);
         self.renderer = new THREE.WebGLRenderer({ antialias: self.settings.antialias });
 
         // assign camera settings
