@@ -72,7 +72,7 @@ var settings = new SLAcer.Settings({
         }
     },
     colors: {
-        mesh : '#eb0984',
+        mesh : '#096ceb',
         slice: '#88ee11',
         panel: {
             collapsed: false,
@@ -425,7 +425,7 @@ $bgInput.on('change', function (e) {
     var userImage = e.target.files[0];     
     var userImageURL = URL.createObjectURL( userImage );
 	
-	viewer3d.addBG();
+	viewer3d.addBG(userImageURL);
     viewer3d.render();
 
 });
@@ -1028,7 +1028,7 @@ function loadGeometry(geometry, mirror) {
 
         // load new mesh in slicer
         slicer.loadMesh(new SLAcer.Mesh(geometry, new THREE.MeshPhongMaterial({
-            color: hexToDec(settings.get('colors.mesh')), side: THREE.DoubleSide, opacity:0.5, transparent:true, depthTest:false
+            color: hexToDec(settings.get('colors.mesh')), side: THREE.DoubleSide, opacity:0.7, transparent:true, depthTest:false
         })));
 
         // add new mesh and render view
