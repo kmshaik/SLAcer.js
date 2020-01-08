@@ -412,6 +412,7 @@ var $fileInput = $fileBody.find('#file-input');
 
 var $bgBody  = initPanel('bg');
 var $bgInput = $bgBody.find('#background-input');
+var texture = null;
 var loadedFile = null;
 
 $fileInput.on('change', function(e) {
@@ -420,8 +421,13 @@ $fileInput.on('change', function(e) {
     loader.loadFile(loadedFile);
 });
 
-$bgInput.on('change', function(e) {
-    bgFile = e.target.files[0];
+$bgInput.on('change', function (e) {
+    var userImage = e.target.files[0];     
+    var userImageURL = URL.createObjectURL( userImage );
+	
+	viewer3d.addBG();
+    viewer3d.render();
+
 });
 
 // Mesh panel
@@ -1027,7 +1033,10 @@ function loadGeometry(geometry, mirror) {
 
         // add new mesh and render view
         viewer3d.addObject(slicer.mesh);
-		viewer3d.addBG();
+		
+		
+
+		
         viewer3d.render();
 
         // update mesh info

@@ -82,12 +82,13 @@ var SLAcer = SLAcer || {};
         SLAcer.Viewer.prototype.addObject.call(this, object);
     };
 	
-	Viewer3D.prototype.addBG = function(file){
+	Viewer3D.prototype.addBG = function(userImageURL){
 		
 		var planeGeometry = new THREE.PlaneGeometry(24, 25.6, 0, 0);
 		loader= new THREE.TextureLoader()
 		loader.setCrossOrigin('anonymous');
-		var texture =loader.load('screenshot.png');
+		var texture =loader.load(userImageURL);
+		
 		var planeMaterial = new THREE.MeshLambertMaterial( { map: texture } );
 		var plane = new THREE.Mesh(planeGeometry, planeMaterial);
 		
