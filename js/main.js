@@ -425,7 +425,7 @@ $bgInput.on('change', function (e) {
     var userImage = e.target.files[0];     
     var userImageURL = URL.createObjectURL( userImage );
 	
-	viewer3d.addBG();
+    viewer3d.addBG(userImageURL);
     viewer3d.render();
 
 });
