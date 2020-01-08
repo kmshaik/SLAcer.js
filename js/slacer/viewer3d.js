@@ -84,7 +84,7 @@ var SLAcer = SLAcer || {};
 	
 	Viewer3D.prototype.addBG = function(userImageURL){
 		
-		var planeGeometry = new THREE.PlaneGeometry(24, 25.6, 0, 0);
+		var planeGeometry = new THREE.PlaneGeometry(25.6, 24, 0, 0);
 		loader= new THREE.TextureLoader()
 		loader.setCrossOrigin('anonymous');
 		var texture =loader.load(userImageURL);

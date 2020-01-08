@@ -303,7 +303,7 @@ var viewer2d = new SLAcer.Viewer2D({
         size   : settings.get('buildVolume.size'),
         unit   : settings.get('buildVolume.unit'),
         color  : 0x000000,
-        opacity: 1 // hide build plate
+        opacity: 0 // hide build plate
     },
     size: settings.get('screen')
 });
