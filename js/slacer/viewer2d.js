@@ -6,14 +6,14 @@ var SLAcer = SLAcer || {};
     // global settings
     var globalSettings = {
         screen: {
-            width   : 1680, // px
-            height  : 1050, // px
-            diagonal: { size: 22, unit: 'in' }
+            width   : 512, // px
+            height  : 480, // px
+            diagonal: { size: 35.1, unit: 'in' }
         },
         buildPlate: {
             size: {
-                x: 100, // mm
-                y: 100  // mm
+                x: 25.6, // mm
+                y: 24  // mm
             },
             unit: 'mm',
             color: 0xff0000,
