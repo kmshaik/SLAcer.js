@@ -45,7 +45,7 @@ var settings = new SLAcer.Settings({
         mirror: false
     },
     buildVolume: {
-        size     : { x: 100,  y: 100,  z: 100 }, // mm
+        size     : { x: 25.6,  y: 24,  z: 24 }, // mm
         unit     : 'mm',                         // mm or in
         color    : 0xcccccc,
         opacity  : 0.1,
