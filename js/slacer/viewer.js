@@ -10,7 +10,7 @@ var SLAcer = SLAcer || {};
             height: 400
         },
         color: 0x000000,
-        antialias: true,
+        antialias: false,
         target: document.body,
         camera: {
             left: -300,
