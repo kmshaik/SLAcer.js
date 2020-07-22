@@ -6,6 +6,7 @@ var SLAcer = SLAcer || {};
     // global settings
     var globalSettings = {
         view: 'default',
+        antialias: true,
         buildVolume: {
             size: {
                 x: 100, // mm
