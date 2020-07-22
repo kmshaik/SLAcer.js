@@ -283,7 +283,8 @@ var $viewer3d = $('#viewer3d');
 var viewer3d  = new SLAcer.Viewer3D({
     color      : settings.get('viewer3d.color'),
     buildVolume: settings.get('buildVolume'),
-    target     : $viewer3d[0]
+    target     : $viewer3d[0],
+    antialias  : true
 });
 
 // Triangulation algorithm
